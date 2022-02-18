@@ -1,36 +1,9 @@
-"""
-Mask R-CNN
-Configurations and data loading code for MS COCO.
-Copyright (c) 2017 Matterport, Inc.
-Licensed under the MIT License (see LICENSE for details)
-Written by Waleed Abdulla
-------------------------------------------------------------
-Usage: import the module (see Jupyter notebooks for examples), or run from
-       the command line as such:
-    # Train a new model starting from pre-trained COCO weights
-    python3 coco.py train --dataset=/path/to/coco/ --model=coco
-    # Train a new model starting from ImageNet weights. Also auto download COCO dataset
-    python3 coco.py train --dataset=/path/to/coco/ --model=imagenet --download=True
-    # Continue training a model that you had trained earlier
-    python3 coco.py train --dataset=/path/to/coco/ --model=/path/to/weights.h5
-    # Continue training the last model you trained
-    python3 coco.py train --dataset=/path/to/coco/ --model=last
-    # Run COCO evaluatoin on the last model you trained
-    python3 coco.py evaluate --dataset=/path/to/coco/ --model=last
-"""
 
 import os
 import sys
 import time
 import numpy as np
-import imgaug  # https://github.com/aleju/imgaug (pip3 install imgaug)
-
-# Download and install the Python COCO tools from https://github.com/waleedka/coco
-# That's a fork from the original https://github.com/pdollar/coco with a bug
-# fix for Python 3.
-# I submitted a pull request https://github.com/cocodataset/cocoapi/pull/50
-# If the PR is merged then use the original repo.
-# Note: Edit PythonAPI/Makefile and replace "python" with "python3".
+import imgaug  
 from pycocotools.coco import COCO
 from pycocotools.cocoeval import COCOeval
 from pycocotools import mask as maskUtils
@@ -86,16 +59,6 @@ class CocoConfig(Config):
 class CocoDataset(utils.Dataset):
     def load_coco(self, dataset_dir, subset, year=DEFAULT_DATASET_YEAR, class_ids=None,
                   class_map=None, return_coco=False, auto_download=False):
-        """Load a subset of the COCO dataset.
-        dataset_dir: The root directory of the COCO dataset.
-        subset: What to load (train, val, minival, valminusminival)
-        year: What dataset year to load (2014, 2017) as a string, not an integer
-        class_ids: If provided, only loads images that have the given classes.
-        class_map: TODO: Not implemented yet. Supports maping classes from
-            different datasets to the same class ID.
-        return_coco: If True, returns the COCO object.
-        auto_download: Automatically download and unzip MS-COCO images and annotations
-        """
 
         if auto_download is True:
             self.auto_download(dataset_dir, subset, year)
@@ -138,14 +101,6 @@ class CocoDataset(utils.Dataset):
             return coco
 
     def auto_download(self, dataDir, dataType, dataYear):
-        """Download the COCO dataset/annotations if requested.
-        dataDir: The root directory of the COCO dataset.
-        dataType: What to load (train, val, minival, valminusminival)
-        dataYear: What dataset year to load (2014, 2017) as a string, not an integer
-        Note:
-            For 2014, use "train", "val", "minival", or "valminusminival"
-            For 2017, only "train" and "val" annotations are available
-        """
 
         # Setup paths and file names
         if dataType == "minival" or dataType == "valminusminival":
@@ -210,15 +165,6 @@ class CocoDataset(utils.Dataset):
         print("Will use annotations in " + annFile)
 
     def load_mask(self, image_id):
-        """Load instance masks for the given image.
-        Different datasets use different ways to store masks. This
-        function converts the different mask format to one format
-        in the form of a bitmap [height, width, instances].
-        Returns:
-        masks: A bool array of shape [height, width, instance count] with
-            one mask per instance.
-        class_ids: a 1D array of class IDs of the instance masks.
-        """
         # If not a COCO image, delegate to parent class.
         image_info = self.image_info[image_id]
         if image_info["source"] != "coco":
