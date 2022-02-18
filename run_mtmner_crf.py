@@ -788,7 +788,7 @@ def main():
     
     # Prepare model
     cache_dir = args.cache_dir if args.cache_dir else os.path.join(str(PYTORCH_PRETRAINED_BERT_CACHE), 'distributed_{}'.format(args.local_rank))
-    cache_dir = "/home/wgs/.cache/torch/pytorch_pretrained_bert"
+    cache_dir = "XXX/.cache/torch/pytorch_pretrained_bert"
     print(cache_dir)
     if args.mm_model == 'MSCMT':
         model = MSCMT.from_pretrained(".cache/pytorch_pretrained_bert",
