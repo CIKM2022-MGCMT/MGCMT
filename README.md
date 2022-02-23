@@ -13,4 +13,4 @@ Download the pre-trained Mask-RCNN via this link (https://github.com/matterport/
 
 ## Datasets
 
-Download twitter images from [here](https://github.com/jefferyYu/UMT/)
+Download twitter images from [UMT](https://github.com/jefferyYu/UMT/)
