@@ -15,3 +15,7 @@ Download the pre-trained Mask-RCNN via this link (https://github.com/matterport/
 
 ## Datasets
 Download twitter images from [UMT](https://github.com/jefferyYu/UMT/)
+
+## Training for MSCMT
+This is the training code of tuning parameters on the dev set, and testing on the test set:
+sh run_mtmner_crf.sh
