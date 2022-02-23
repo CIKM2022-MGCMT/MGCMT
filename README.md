@@ -1,4 +1,6 @@
 # MSCMT
+The code implementation of this paper refers to [UMT](https://github.com/jefferyYu/UMT)
+
 ## Requirements
 
 python>=3.6
@@ -12,5 +14,4 @@ Download the pre-trained ResNet-152 via this link (https://download.pytorch.org/
 Download the pre-trained Mask-RCNN via this link (https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5)
 
 ## Datasets
-
 Download twitter images from [UMT](https://github.com/jefferyYu/UMT/)
