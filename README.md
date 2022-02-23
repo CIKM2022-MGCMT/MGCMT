@@ -18,4 +18,7 @@ Download twitter images from [UMT](https://github.com/jefferyYu/UMT/)
 
 ## Training for MSCMT
 This is the training code of tuning parameters on the dev set, and testing on the test set:
+```python
+
 sh run_mtmner_crf.sh
+```
