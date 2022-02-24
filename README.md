@@ -1,5 +1,4 @@
 # MSCMT
-The code implementation of this paper refers to [UMT](https://github.com/jefferyYu/UMT)
 
 ## Requirements
 
@@ -16,7 +15,7 @@ Download the pre-trained ResNet-152 via this link (https://download.pytorch.org/
 Download the pre-trained Mask-RCNN via this link (https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5)
 
 ## Datasets
-Download twitter images from [UMT](https://github.com/jefferyYu/UMT/)
+Download twitter images from [here](https://drive.google.com/drive/folders/1j83-VH1Gp3eFRKEMOJqkH3Qojk7nJQwL?usp=sharing)
 
 ## Training for MSCMT
 This is the training code of tuning parameters on the dev set, and testing on the test set:
