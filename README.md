@@ -1,6 +1,6 @@
 # MSCMT
 
-## Requirements
+## Requirements(Ubuntu 18.04.5 LTS, Nvidia Titan Xp)
 
 python>=3.6
 
