@@ -11470,8 +11470,8 @@ O O O O O O O O O O B-PER I-PER O O O O O B-PER I-PER O O O O O
 
 710240.jpg
 RT @1DUpdatesARG _ : #NEW Louis at Toyota Park in Chicago yesterday 22/7 #2 http://t.co/FUJCqneMHF
-O O O O O B-PER O B-LOC I-LOC O B-LOC O O O O
-O O O O O O O B-LOC I-LOC O O O O O O
+O O O O B-ORG I-ORG O B-LOC I-LOC O B-LOC O O O O
+O O O O B-ORG I-ORG O B-LOC I-LOC O B-LOC O O O O
 
 1053934.jpg
 You can see France Italy and Switzerland http://t.co/YlrCelmu
